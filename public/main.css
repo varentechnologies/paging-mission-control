@@ -1,0 +1,25 @@
+body {
+  color: white;
+  text-align: center;
+  background-image: url('./space.jpg');
+  background-size: cover;
+}
+
+button {
+  box-sizing: border-box;
+  border: none;
+  padding: 10px;
+}
+
+table {
+  margin: auto;
+  margin-top: 2em;
+}
+
+td, th {
+  padding: 0.5em;
+}
+
+.danger {
+  background-color: red;
+}
