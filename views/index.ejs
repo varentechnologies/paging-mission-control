@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="./main.css" />
+  <script src="main.js"></script>
+</head>
+<body>
+  <h1>Paging Mission Control</h1>
+  <form method="POST" action="/evaluate" enctype="multipart/form-data">
+    <input type='file' name='satellite'>
+    <button>Submit</button>
+  </form>
+  <table>
+    <tr>
+      <th>Status</th>
+      <th>Satellite ID</th>
+      <th>Severity</th>
+      <th>Component</th>
+      <th>Time Stamp</th>
+    </tr>
+    <% data.forEach(function(sat){ %>
+      <tr>
+        <td class="danger">Danger!</td>
+        <td><%= sat.satelliteId %></td>
+        <td><%= sat.severity %></td>
+        <td><%= sat.component %></td>
+        <td><%= sat.timestamp %></td>
+      </tr>
+    <% }) %>
+  </div>  
+</body>
+</html>
