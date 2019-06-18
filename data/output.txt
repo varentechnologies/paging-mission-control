@@ -1,0 +1,14 @@
+[
+    {
+        "satelliteId": 1000,
+        "severity": "RED HIGH",
+        "component": "TSTAT",
+        "timestamp": "2018-01-01T23:01:38.001Z"
+    },
+    {
+        "satelliteId": 1000,
+        "severity": "RED LOW",
+        "component": "BATT",
+        "timestamp": "2018-01-01T23:01:09.521Z"
+    }
+]
