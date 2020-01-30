@@ -4,12 +4,12 @@ import argparse
 class Alert_generation():
 	def __init__(self):
 		self.alerted = {}
-		self.output = '''{
-							satelliteId: {0},
-							severity: {1},
-							component: {2},
-							timestamp: {3}
-						}'''
+		self.count = 0
+		self.output = \
+'''		satelliteId: {0},
+		severity: "{1}",
+		component: "{2}",
+		timestamp: "{3}"'''
 
 	def add_ID(self, ID):
 		self.alerted[ID] = {"BATT":[], "TSTAT":[]}
@@ -30,29 +30,48 @@ class Alert_generation():
 		if self.alerted.get(ID, None) == None:
 			self.add_ID(ID)
 		if component == "BATT":
-			if value < low_limit:
+			if float(value) < float(low_limit):
 				warn = 1
 		elif component == "TSTAT":
-			if value > high_limit:
+			if float(value) > float(high_limit):
 				warn = 1
-		if warn:
+		if warn == 1:
 			self.time_check(ID, component, _time)
 		if len(self.alerted[ID][component]) > 2:
-			self.output(ID, component, _time)
+			self.printer(ID, component)
 			
-	def output(self, ID, component, timestamp):
+	def printer(self, ID, component):
+		if self.count == 0:
+			print("[")
+			self.count = 1
+		else:
+			print("	},")
+		timestamp = self.alerted[ID][component].pop(0)[1]
+		timestamp = time.strptime(timestamp[:-4], "%Y%m%d %H:%M:%S")
+		self.alerted[ID][component] = []
 		severity = "RED HIGH"
 		if component == "BATT":
 			severity = "RED LOW"
-		print(self.output.format(ID, severity, component, timestamp)
-		self.alerted[ID][component].pop(0)
+		print("	{")
+		print(self.output.format(ID, severity, component, timestamp))
+		
+	def end(self):
+		print("	}")
+		print("]")
 		
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='')
-	parser.add_argument('integers', metavar='N', type=int, nargs='+',
-						help='an integer for the accumulator')
-	parser.add_argument('--sum', dest='accumulate', action='store_const',
-						const=sum, default=max,
-						help='sum the integers (default: find the max)')
-
+	parser.add_argument('input_file', metavar='F', type=str, 
+						help='')
 	args = parser.parse_args()
+	alert_generator = Alert_generation()
+	with open(args.input_file, "r") as in_file:
+		while True:
+			line = in_file.readline().strip("\n")
+			if line:
+				_time, ID, h_limit, __, l_limit, __, value, component = line.split("|")
+				alert_generator.check(h_limit, l_limit, value, component, ID, _time)
+			else:
+				break
+		alert_generator.end()
+		
