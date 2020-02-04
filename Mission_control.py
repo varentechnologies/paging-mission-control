@@ -46,8 +46,10 @@ class Alert_generation():
 			self.count = 1
 		else:
 			print("	},")
-		timestamp = self.alerted[ID][component].pop(0)[1]
+		timestamp = self.alerted[ID][component][0][1]
+		ts_end = timestamp[-4:]
 		timestamp = time.strptime(timestamp[:-4], "%Y%m%d %H:%M:%S")
+		timestamp = time.strftime("%Y-%m-%dT%H:%M:%S"+ts_end+"Z", timestamp)
 		self.alerted[ID][component] = []
 		severity = "RED HIGH"
 		if component == "BATT":
