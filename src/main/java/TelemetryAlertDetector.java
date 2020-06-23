@@ -62,7 +62,7 @@ public class TelemetryAlertDetector {
     public void checkForAlertSequence(LinkedList<TelemetryData>  telemetryList) {
         if (telemetryList.size() != 3) return;
 
-        if (Duration.between(telemetryList.getFirst().getTimestamp(), telemetryList.getLast().getTimestamp()).toMillis() < 5000) {
+        if (Duration.between(telemetryList.getFirst().getTimestamp(), telemetryList.getLast().getTimestamp()).toMillis() < 5*60*1000) {
             System.out.println(telemetryList.getLast().toJSONString());
             telemetryList.clear(); //Clearing the list here to reset the 5-second window
         } else {
