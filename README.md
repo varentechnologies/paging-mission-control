@@ -73,3 +73,25 @@ The following may be used as sample input and output datasets.
     }
 ]
 ```
+
+## Comments
+
+The key element of this task was filtering the telemetry data by Satellite and Component. A hashmap is perfect for filtering by satellite, as we can simply use the satteliteID as our key and get O(1) insertion/retrieval. 
+
+We only care about the alerts if there have been 3 in the last 5 minutes, so we only ever need to keep track of the last 3 alerts for any given component/satellite pair. Since we will  be constantly adding/removing alerts, a Linked List is the obvious choice, since it trivializes this add/remove process and gives us O(1) time. The time complexity is not a major concern here, however, since we're only ever keeping the latest 3 alerts.
+
+### Complexity
+
+#### Time
+
+We will have to iterate over the entire list of telemetry data, but we only have to make a single pass, so our base complexity is at least O(n). Since our HashMap lookups/inserts are O(1) and our LinkedList add/removes are also O(1), our overall time complexity is O(n + 1 + 1), or O(n).   
+
+#### Space
+
+Our worst-case space complexity would be if the entire list contains all unique satellite/component pairs, so O(n). Our best case space complexity would occur if there is only a single satellite/component pair. This would only use 3 elements in the LinkedList and 1 element in the HashMap. 
+
+### Concerns
+
+The limiting scalability factor for this implementation is the handling of the various components. At first I considered making TelemetryData an abstract class and having the specific component data classes extend the TelemetryData class. Since there were only two components for this challenge, this seemed unnecessary. In a real-world scenario, this would very likely need to be handled differently. 
+
+This concern also applies to the HashMaps in the TelemetryAlertDetector class. Since there are a finite and known number of satellite components, it is easy to use explicitly declared HashMaps for each component type. If this was required to scale, then the HashMap instantiation/handling would need to be changed accordingly.  
