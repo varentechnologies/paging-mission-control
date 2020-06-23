@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
 
 import static org.junit.Assert.*;
@@ -16,6 +17,12 @@ public class TelemetryAlertDetectorTest {
 
     @Test
     public void parseTelemetryFileForAlerts() {
+        try {
+            this.tad.parseTelemetryFileForAlerts(System.getProperty("user.dir") + "\\src\\test\\SampleTelemetryData.txt");
+        } catch( FileNotFoundException e) {
+
+        }
+
     }
 
     @Test
@@ -56,10 +63,12 @@ public class TelemetryAlertDetectorTest {
     public void testCheckForAlertSequence_NO_ALERT() {
         LinkedList<TelemetryData> list = new LinkedList<>();
         list.add(new TelemetryData("20180101 23:01:05.001|1001|101|98|25|20|9|BATT"));
-        list.add(new TelemetryData("20180101 23:01:16.001|1001|101|98|25|20|9|BATT"));
-        list.add(new TelemetryData("20180101 23:01:17.001|1001|101|98|25|20|9|BATT"));
+        list.add(new TelemetryData("20180101 23:03:16.001|1001|101|98|25|20|9|BATT"));
+        list.add(new TelemetryData("20180101 23:06:17.001|1001|101|98|25|20|9|BATT"));
 
         tad.checkForAlertSequence(list);
         assertEquals(list.size(), 2);
     }
+
+
 }
