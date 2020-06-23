@@ -1,14 +1,13 @@
-package test;
-
+import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
-import main.TelemetryData;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+
 
 public class TelemetryDataTest {
 
-    private main.TelemetryData data;
+    private TelemetryData data;
 
     @Before
     public void beforeEachTest() {
@@ -37,7 +36,7 @@ public class TelemetryDataTest {
 
     @Test
     public void testIsAlert_TSTAT_True() {
-        main.TelemetryData data = new TelemetryData("20180101 23:01:05.001|1001|101|98|25|20|101.1|TSTAT");
+        TelemetryData data = new TelemetryData("20180101 23:01:05.001|1001|101|98|25|20|101.1|TSTAT");
         assertTrue(data.isAlert());
     }
 
@@ -54,7 +53,7 @@ public class TelemetryDataTest {
     }
     @Test
     public void testToJSON() {
-        //JsonObject json = Json.createObjectBuilder()
-        //        .add("satelliteId", 1000);
+        JSONObject json = new JSONObject();
+        json.put("")
     }
 }

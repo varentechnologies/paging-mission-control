@@ -1,4 +1,4 @@
-package main;
+import org.json.JSONObject;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -48,7 +48,7 @@ public class TelemetryData {
     }
 
     public String toJSON() {
-        //TODO
+        JSONObject json = JSONObject
         return null;
     }
 

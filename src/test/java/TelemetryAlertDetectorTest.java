@@ -1,15 +1,12 @@
-package test;
-
-import main.TelemetryAlertDetector;
-import main.TelemetryData;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.LinkedList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class TelemetryAlertDetectorTest {
+
+public class TelemetryAlertDetectorTest {
 
     TelemetryAlertDetector tad;
     @Before

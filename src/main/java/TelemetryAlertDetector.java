@@ -1,17 +1,11 @@
-package main;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class TelemetryAlertDetector {
-
-
-
 
     /*
       Using a hashmap will give O(1) insertions and lookups, which will be important if there are many satellites / component
