@@ -17,6 +17,12 @@ public class TelemetryAlertDetector {
     private HashMap<Integer, LinkedList<TelemetryData>> thermostatAlertMap;
 
     public static void main (String[] args) {
+        TelemetryAlertDetector alertDetector = new TelemetryAlertDetector();
+        try {
+            alertDetector.parseTelemetryFileForAlerts(System.getProperty("user.dir") + "\\src\\test\\SampleTelemetryData.txt");
+        } catch (FileNotFoundException e) {
+            return;
+        }
         return;
     }
 
