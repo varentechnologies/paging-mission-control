@@ -47,7 +47,7 @@ public class TelemetryData {
         return isAlert;
     }
 
-    public String printAsJSON() {
+    public String toJSON() {
         //TODO
         return null;
     }
