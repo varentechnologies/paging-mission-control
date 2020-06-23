@@ -1,7 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.LinkedList;
 
 import static org.junit.Assert.*;
@@ -17,11 +19,18 @@ public class TelemetryAlertDetectorTest {
 
     @Test
     public void parseTelemetryFileForAlerts() {
+        //final PrintStream stdOut = System.out;
+        final ByteArrayOutputStream newOut = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(newOut));
+        String expected = "{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1000,\"timestamp\":\"20180101T23:03:05.009Z\"}\r\n" +
+                "{\"severity\":\"RED LOW\",\"component\":\"BATT\",\"satelliteId\":1000,\"timestamp\":\"20180101T23:04:11.531Z\"}\r\n" +
+                "{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1001,\"timestamp\":\"20180101T23:08:05.021Z\"}\r\n";
         try {
             this.tad.parseTelemetryFileForAlerts(System.getProperty("user.dir") + "\\src\\test\\SampleTelemetryData.txt");
         } catch( FileNotFoundException e) {
-
         }
+        assertEquals(expected, newOut.toString());
+
 
     }
 
