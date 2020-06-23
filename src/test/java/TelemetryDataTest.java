@@ -53,7 +53,13 @@ public class TelemetryDataTest {
     }
     @Test
     public void testToJSON() {
+        TelemetryData data = new TelemetryData("20180101 23:01:05.001|1001|101|98|25|20|101.1|TSTAT");
         JSONObject json = new JSONObject();
-        json.put("")
+        json.put("satelliteId", 1001);
+        json.put("severity", "RED HIGH");
+        json.put("component", "TSTAT");
+        json.put("timestamp", "20180101T23:01:05.001Z");
+
+        assertEquals(json.toString(), data.toJSONString());
     }
 }

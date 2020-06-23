@@ -10,6 +10,7 @@ public class TelemetryData {
     private LocalDateTime timestamp;
     private Component component;
     private boolean isAlert;
+    private String alertName;
 
     public TelemetryData(String rawTelemetryData) {
         double highLimit = 0;
@@ -38,6 +39,11 @@ public class TelemetryData {
     public LocalDateTime getTimestamp() {
         return timestamp;
     }
+    public String getTimestampString()
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HH:mm:ss.SSS'Z'");
+        return this.getTimestamp().format(formatter);
+    }
 
     public Component getComponent() {
         return this.component;
@@ -47,8 +53,16 @@ public class TelemetryData {
         return isAlert;
     }
 
-    public String toJSON() {
-        JSONObject json = JSONObject
+    public String toJSONString() {
+        if (this.isAlert()){
+            JSONObject json = new JSONObject();
+            json.put("satelliteId", this.getSatelliteId());
+            json.put("severity", this.alertName);
+            json.put("component", this.getComponent().toString());
+            json.put("timestamp", this.getTimestampString());
+            return json.toString();
+        }
+
         return null;
     }
 
@@ -66,9 +80,11 @@ public class TelemetryData {
         switch(componentName.toUpperCase()) {
             case "TSTAT":
                 this.component = Component.TSTAT;
+                this.alertName = "RED HIGH";
                 break;
             case "BATT":
                 this.component = Component.BATT;
+                this.alertName = "RED LOW";
                 break;
         }
     }

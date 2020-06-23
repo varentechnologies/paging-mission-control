@@ -63,7 +63,7 @@ public class TelemetryAlertDetector {
         if (telemetryList.size() != 3) return;
 
         if (Duration.between(telemetryList.getFirst().getTimestamp(), telemetryList.getLast().getTimestamp()).toMillis() < 5000) {
-            System.out.println(telemetryList.getLast().toJSON());
+            System.out.println(telemetryList.getLast().toJSONString());
             telemetryList.clear(); //Clearing the list here to reset the 5-second window
         } else {
             telemetryList.removeLast(); //this will move the 5-second window forward
