@@ -4,8 +4,6 @@ import main.TelemetryData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class TelemetryDataTest {
 
     private TelemetryData data;
@@ -53,6 +51,8 @@ public class TelemetryDataTest {
         assertTrue(data.isAlert());
     }
     @Test
-    void testPrintAsJSON() {
+    void testToJSON() {
+        JsonObject json = Json.createObjectBuilder()
+                .add("satelliteId", 1000);
     }
 }
