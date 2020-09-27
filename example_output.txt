@@ -1,0 +1,38 @@
+
+
+
+2020-09-27 16:17:38.682  INFO 18416 --- [           main] c.v.pagingmissioncontrol.Application     : Started Application in 1.388 seconds (JVM running for 1.858)
+2020-09-27 16:17:38.698  INFO 18416 --- [           main] c.v.p.InputFileLoader                    : Loading data file input.txt...
+2020-09-27 16:17:38.698 DEBUG 18416 --- [           main] c.v.p.r.TelemetryDataContentBasedRouter  : Processing 14 telemetry objects
+2020-09-27 16:17:38.713 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Ready to monitor condition RED LOW for component BATT for satellite 1001
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Ready to monitor condition RED HIGH for component TSTAT for satellite 1001
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.r.TelemetryDataContentBasedRouter  : Created processor for satellite with id 1001
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Ready to monitor condition RED LOW for component BATT for satellite 1000
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Ready to monitor condition RED HIGH for component TSTAT for satellite 1000
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.r.TelemetryDataContentBasedRouter  : Created processor for satellite with id 1000
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Satellite 1000 component BATT condition RED LOW triggered
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Satellite 1000 component TSTAT condition RED HIGH triggered
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Satellite 1000 component BATT condition RED LOW triggered
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Satellite 1000 component TSTAT condition RED HIGH triggered
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Satellite 1000 component TSTAT condition RED HIGH triggered
+2020-09-27 16:17:38.729 DEBUG 18416 --- [           main] c.v.p.entity.EventDurationBucket         : Window threshold triggered
+2020-09-27 16:17:38.729  INFO 18416 --- [           main] c.v.p.service.AlertService               : Handling alert: Alert(satelliteId=1000, severity=RED HIGH, component=TSTAT, timestamp=2018-01-01T23:01:38.001)
+2020-09-27 16:17:38.745 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Satellite 1000 component BATT condition RED LOW triggered
+2020-09-27 16:17:38.745 DEBUG 18416 --- [           main] c.v.p.entity.EventDurationBucket         : Window threshold triggered
+2020-09-27 16:17:38.745  INFO 18416 --- [           main] c.v.p.service.AlertService               : Handling alert: Alert(satelliteId=1000, severity=RED LOW, component=BATT, timestamp=2018-01-01T23:01:09.521)
+2020-09-27 16:17:38.745 DEBUG 18416 --- [           main] c.v.p.processor.SatelliteProcessor       : Satellite 1001 component BATT condition RED LOW triggered
+2020-09-27 16:17:38.814  INFO 18416 --- [           main] c.v.p.service.AlertService               : [
+    {
+        satelliteId : 1000,
+        severity : "RED HIGH",
+        component : "TSTAT",
+        timestamp : "2018-01-01T23:01:38.001Z"
+    },
+    {
+        satelliteId : 1000,
+        severity : "RED LOW",
+        component : "BATT",
+        timestamp : "2018-01-01T23:01:09.521Z"
+    }
+]
+2020-09-27 16:17:38.829 DEBUG 18416 --- [extShutdownHook] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@33d512c1, started on Sun Sep 27 16:17:37 EDT 2020
