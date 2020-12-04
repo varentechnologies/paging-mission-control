@@ -3,7 +3,7 @@
 > telemetrymonitor.py ingests ASCII files with pipe delimited records, processes the records, and outputs json in the requested format. The program is written in python3
 and implements an object oriented approach to process the records. The program can accept multiple files, and will only parse files with records in the appropriate
 format below. The program was written to meet the requirements of the exercise. Additionally, the program was implemented with flexibility in mind. Data format's
-can and do often change. As a result, with very little modification, one would be able to modify the number of alerts required to trigger alerts, as well as, the desired elapsed time between alerts. It would also be easy to change the data record delimiter, and order of the records. Implementing this functionality is outside
+can and do often change. As a result, with very little modification, one would be able to modify the number of violations required to trigger alerts, as well as, the desired elapsed time between alerts. It would also be easy to change the data record delimiter, and order of the records. Implementing this functionality is outside
 the scope of this project, however, it is important to keep such things in mind in real world scenarios.
 
 # test_generator.py
