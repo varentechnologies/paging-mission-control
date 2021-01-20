@@ -1,7 +1,7 @@
 # How To Run
 To run the project go to paging-mission-control/src/main/java/com/example/pagingmissioncontrol/PagingMissionControlApplication.java and run the PagingMissionControlApplication.java file as a java application or as a Spring Boot Application in Eclipse.
 
-In addition you can go to the project folder, run **gradlew build** . Afterwards navigate to paging-mission-control\build\libs and run **java -jar paging-mission-control-0.0.1-SNAPSHOT.jar** .
+In addition you can go to the project folder, run **gradlew build** from cmd or **./gradlew build** from gitbash. Afterwards navigate to paging-mission-control\build\libs and run **java -jar paging-mission-control-0.0.1-SNAPSHOT.jar** .
 
 Input can be changed by updating the text file located in paging-mission-control/src/main/resources/data.txt.
 
