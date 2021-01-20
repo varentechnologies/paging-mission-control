@@ -124,7 +124,7 @@ public class DataProcessor {
 			Date endDate = calendar.getTime();
 
 			int exceedCount = 0;
-
+			Date firstOccurrence = null;
 			for (TelemetryObject telemetry : telemetryList) {
 				// check if time is equal or in between five min
 				if (telemetry.getTimestamp().equals(startDate) || telemetry.getTimestamp().equals(endDate)
@@ -132,8 +132,14 @@ public class DataProcessor {
 					// check if thermostat is high or check if battery is low based on component
 					// type
 					if (component.equals(TSTAT) && telemetry.getRawValue() > telemetry.getRedHighLimit()) {
+						if(firstOccurrence == null) {
+							firstOccurrence = telemetry.getTimestamp();
+						}
 						exceedCount++;
 					} else if (component.equals(BATT) && telemetry.getRawValue() < telemetry.getRedLowLimit()) {
+						if(firstOccurrence == null) {
+							firstOccurrence = telemetry.getTimestamp();
+						}
 						exceedCount++;
 					}
 
@@ -143,7 +149,7 @@ public class DataProcessor {
 						alertResponseObject.setComponent(telemetry.getComponent());
 						alertResponseObject.setSateliteId(Integer.parseInt(telemetry.getSatelliteId()));
 						alertResponseObject.setSeverity(severity);
-						alertResponseObject.setTimestamp(startDate);
+						alertResponseObject.setTimestamp(firstOccurrence);
 						responseList.add(alertResponseObject);
 					}
 				} else {
@@ -154,7 +160,7 @@ public class DataProcessor {
 					calendar2.setTime(startDate);
 					calendar2.add(Calendar.MINUTE, 5);
 					endDate = calendar2.getTime();
-
+					firstOccurrence = null;
 				}
 			}
 		}
