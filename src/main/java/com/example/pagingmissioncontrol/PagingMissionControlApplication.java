@@ -7,7 +7,7 @@ import com.example.pagingmissioncontrol.dataprocessor.DataProcessor;
 
 @SpringBootApplication
 public class PagingMissionControlApplication {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(PagingMissionControlApplication.class, args);
 		
