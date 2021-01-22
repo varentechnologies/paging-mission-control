@@ -44,8 +44,6 @@ class PagingMissionControlApplicationTests {
 	
 	@Test
 	public void testEmptyFileReturnsMessageToUser() {
-		
-		//dataProcessor.setFilePath("src/test/resources/nodata.txt");
 		dataProcessor.setFileName("nodata.txt");
 
 		dataProcessor.processData();
@@ -55,7 +53,6 @@ class PagingMissionControlApplicationTests {
 	@Test
 	public void testTwoDevicesData() {
 		String dataJsonString = "[{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1000,\"timestamp\":\"2018-01-01T23:01:38.001Z\"},{\"severity\":\"RED LOW\",\"component\":\"BATT\",\"satelliteId\":1000,\"timestamp\":\"2018-01-01T23:01:09.521Z\"}]\n" +"";
-		//dataProcessor.setFilePath("src/test/resources/twodevicesdata.txt");
 		dataProcessor.setFileName("twodevicesdata.txt");
 		dataProcessor.processData();
 		assertThat(dataJsonString, containsString(outContent.toString()));
@@ -63,10 +60,17 @@ class PagingMissionControlApplicationTests {
 	
 	@Test
 	public void testFileNotFoundCaught() {
-		//dataProcessor.setFilePath("src/test/resources/wrongFile.txt");
 		dataProcessor.setFileName("wrongFile.txt");
 		dataProcessor.processData();
 		assertEquals("Unable to find file.", outContent.toString());
+	}
+	
+	@Test
+	public void testLargeDataSetWithMultipleEventsIn5MinRange() {
+		dataProcessor.setFileName("largerdataset.txt");
+		String expectedJsonString = "[{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1006,\"timestamp\":\"2018-01-01T23:07:49.021Z\"},{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1004,\"timestamp\":\"2018-01-01T23:01:26.011Z\"},{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1001,\"timestamp\":\"2018-01-01T23:01:26.011Z\"},{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1001,\"timestamp\":\"2018-01-01T23:07:49.021Z\"},{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1001,\"timestamp\":\"2018-01-01T23:17:49.021Z\"},{\"severity\":\"RED HIGH\",\"component\":\"TSTAT\",\"satelliteId\":1000,\"timestamp\":\"2018-01-01T23:01:38.001Z\"},{\"severity\":\"RED LOW\",\"component\":\"BATT\",\"satelliteId\":1000,\"timestamp\":\"2018-01-01T23:01:09.521Z\"}]";
+		dataProcessor.processData();
+		assertEquals(expectedJsonString, outContent.toString());
 	}
 
 }

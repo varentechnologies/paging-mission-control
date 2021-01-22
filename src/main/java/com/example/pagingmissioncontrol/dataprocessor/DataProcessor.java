@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -32,14 +33,14 @@ public class DataProcessor {
 	public void processData() {
 
 		// use to store unique satellite and its information telemetery entries
-		HashMap<String, List<TelemetryObject>> telemetryDataMap = new HashMap<String, List<TelemetryObject>>();
+		Map<String, List<TelemetryObject>> telemetryDataMap = new HashMap<String, List<TelemetryObject>>();
+		Scanner input = null;
 
 		try {
 
 			ClassLoader classLoader = getClass().getClassLoader();
 			InputStream file = classLoader.getResourceAsStream(fileName);
 			// read in file
-			Scanner input = null;
 			input = new Scanner(file);
 			// <timestamp>|<satellite-id>|<red-high-limit>|<yellow-high-limit>|<yellow-low-limit>|<red-low-limit>|<raw-value>|<component>
 			while (input.hasNextLine()) {
@@ -72,12 +73,17 @@ public class DataProcessor {
 			}
 		} catch (NullPointerException ex) {
 			System.out.print("Unable to find file.");
+		} finally {
+			if (input != null) {
+				input.close();
+			}
 		}
 
 	}
 
 	private void convertToJson(List<AlertResponseObject> responseList) {
-		// take error events and create objects and add them to array to be returned to user
+		// take error events and create objects and add them to array to be returned to
+		// user
 		JSONArray responseObjectArray = new JSONArray();
 		// create new Json object for each violation reading to be added to response
 		// array
@@ -87,29 +93,27 @@ public class DataProcessor {
 			// objects to response array
 			SimpleDateFormat dateResponseFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 			String timestamp = dateResponseFormat.format(responseList.get(i).getTimestamp());
-			object.put("timestamp", timestamp);
 			object.put("satelliteId", responseList.get(i).getSateliteId());
-			object.put("component", responseList.get(i).getComponent());
 			object.put("severity", responseList.get(i).getSeverity());
+			object.put("component", responseList.get(i).getComponent());
+			object.put("timestamp", timestamp);
 			responseObjectArray.put(object);
 		}
 
 		System.out.print(responseObjectArray);
 	}
 
-	private List<AlertResponseObject> checkReadings(HashMap<String, List<TelemetryObject>> telemetryDataMap,
+	private List<AlertResponseObject> checkReadings(Map<String, List<TelemetryObject>> telemetryDataMap,
 			String component, String severity) {
 
 		List<AlertResponseObject> responseList = new ArrayList<AlertResponseObject>();
 		// loop through all unique satellite ids
-		for (String key : telemetryDataMap.keySet()) {
-			List<TelemetryObject> telemetryList = telemetryDataMap.get(key);
-			// filter out readings that aren't the component we are checking
-			telemetryList = telemetryList.stream()
-					.filter(telemetryData -> telemetryData.getComponent().equals(component))
-					.collect(Collectors.toList());
-			// sort filtered data by date
-			telemetryList.sort((list1, list2) -> list1.getTimestamp().compareTo(list2.getTimestamp()));
+		//for (String key : telemetryDataMap.keySet()) {
+		for(Map.Entry<String, List<TelemetryObject>> entry: telemetryDataMap.entrySet()) {
+			List<TelemetryObject> telemetryList = entry.getValue();
+			// filter out readings that aren't the component we are checking , non
+			// violations and sort
+			telemetryList = filterAndSortTelemtryList(telemetryList, component);
 			// if all results filtered skip this satellite id
 			if (telemetryList.isEmpty()) {
 				continue;
@@ -125,47 +129,82 @@ public class DataProcessor {
 
 			int exceedCount = 0;
 			Date firstOccurrence = null;
-			for (TelemetryObject telemetry : telemetryList) {
-				// check if time is equal or in between five min
-				if (telemetry.getTimestamp().equals(startDate) || telemetry.getTimestamp().equals(endDate)
-						|| (telemetry.getTimestamp().after(startDate) && telemetry.getTimestamp().before(endDate))) {
-					// check if thermostat is high or check if battery is low based on component
-					// type
-					if (component.equals(TSTAT) && telemetry.getRawValue() > telemetry.getRedHighLimit()) {
-						if(firstOccurrence == null) {
-							firstOccurrence = telemetry.getTimestamp();
-						}
-						exceedCount++;
-					} else if (component.equals(BATT) && telemetry.getRawValue() < telemetry.getRedLowLimit()) {
-						if(firstOccurrence == null) {
-							firstOccurrence = telemetry.getTimestamp();
-						}
-						exceedCount++;
-					}
 
-					// if violations are 3 or more then we need to report to user
-					if (exceedCount >= 3) {
-						AlertResponseObject alertResponseObject = new AlertResponseObject();
-						alertResponseObject.setComponent(telemetry.getComponent());
-						alertResponseObject.setSateliteId(Integer.parseInt(telemetry.getSatelliteId()));
-						alertResponseObject.setSeverity(severity);
-						alertResponseObject.setTimestamp(firstOccurrence);
-						responseList.add(alertResponseObject);
-					}
-				} else {
-					// outside of time range, reset for next time range
-					exceedCount = 0;
-					startDate = endDate;
+			// loop through all violations events
+			for (TelemetryObject teleMeteryData : telemetryList) {
+
+				if (startDate == null) {
+					startDate = teleMeteryData.getTimestamp();
 					Calendar calendar2 = Calendar.getInstance();
 					calendar2.setTime(startDate);
 					calendar2.add(Calendar.MINUTE, 5);
 					endDate = calendar2.getTime();
-					firstOccurrence = null;
+				}
+				if (teleMeteryData.getTimestamp().equals(startDate) || teleMeteryData.getTimestamp().equals(endDate)
+						|| (teleMeteryData.getTimestamp().after(startDate)
+								&& teleMeteryData.getTimestamp().before(endDate))) {
+
+					if (firstOccurrence == null) {
+						firstOccurrence = teleMeteryData.getTimestamp();
+					}
+					exceedCount++;
+					// if violations are 3 or more then we need to report to user
+					if (exceedCount == 3) {
+						AlertResponseObject alertResponseObject = new AlertResponseObject();
+						alertResponseObject.setComponent(teleMeteryData.getComponent());
+						alertResponseObject.setSateliteId(Integer.parseInt(teleMeteryData.getSatelliteId()));
+						alertResponseObject.setSeverity(severity);
+						alertResponseObject.setTimestamp(firstOccurrence);
+						responseList.add(alertResponseObject);
+
+						// set start date, first occurrence to null so next element updates it
+						// reset the exceedCount
+						exceedCount = 0;
+						startDate = null;
+						firstOccurrence = null;
+					}
+
+				} else {
+
+					// we found event outside of time range since first event
+					// set exceed to 1 since all events are violations, start to current event
+					// set this event as firstOccurrence
+					exceedCount = 1;
+					startDate = teleMeteryData.getTimestamp();
+					Calendar calendar2 = Calendar.getInstance();
+					calendar2.setTime(startDate);
+					calendar2.add(Calendar.MINUTE, 5);
+					endDate = calendar2.getTime();
+					firstOccurrence = startDate;
+
 				}
 			}
 		}
 		return responseList;
 
+	}
+
+	private List<TelemetryObject> filterAndSortTelemtryList(List<TelemetryObject> telemetryList, String component) {
+		// filter out elements not component
+		telemetryList = telemetryList.stream().filter(telemetryData -> telemetryData.getComponent().equals(component))
+				.collect(Collectors.toList());
+
+		// leave only violation data for tsat and batt
+		if (component.equals(TSTAT)) {
+			telemetryList = telemetryList.stream()
+					.filter(telemetryData -> telemetryData.getRawValue() > telemetryData.getRedHighLimit())
+					.collect(Collectors.toList());
+		}
+		if (component.equals(BATT)) {
+			telemetryList = telemetryList.stream()
+					.filter(telemetryData -> telemetryData.getRawValue() < telemetryData.getRedLowLimit())
+					.collect(Collectors.toList());
+		}
+
+		// sort filtered data by date
+		telemetryList.sort((list1, list2) -> list1.getTimestamp().compareTo(list2.getTimestamp()));
+
+		return telemetryList;
 	}
 
 	private TelemetryObject createTelemetryObject(String[] inputList) {
