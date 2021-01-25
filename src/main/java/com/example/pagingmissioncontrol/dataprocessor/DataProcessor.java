@@ -56,7 +56,6 @@ public class DataProcessor {
 					telemetryDataMap.put(telemetryId, tempList);
 				}
 			}
-			input.close();
 
 			// if map empty after trying to read lines, empty file
 			if (telemetryDataMap.isEmpty()) {
