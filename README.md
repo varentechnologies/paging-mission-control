@@ -7,12 +7,21 @@ Input can be changed by updating the text file located in paging-mission-control
 
 For further enhancements we can add ability for user to designate a file path for file loading.
 
+# Solution Context
+For this solution there are several ways to implement based on time window:
+ - Rolling window(first event occurs, check if another 2 occur in 5 minute window and if so report it and then move to the next violation)
+   - For this solution I used this approach after intially using the 5 Minute Interval approach
+   - If 5 violation events occur within 5 minutes, we will create alert after third event and reset violation counter and check starting from the 4th event
+   - Changed to this approach because other approach didn't create violations if event occurred near end of interval and start of interval
+    - Ex: Violations occur at 01,05,06,07,13,17 - We would start from interval [01,05] and have 2 events, then for next interval [05,10] have 2 events again. Issue with this           approach was that we had violation occur within a 5 min interval with the violation at 05,06,07 and if we use interval approach it would not work and pick that up.  
+ - 5 Minute Interval From First Event - if first event occurred at 02 then we would check violations in windows [02,07],[07,12],[12,17]...etc but this leads to issue as            mentioned above of missing events. This was the approach I intially used but after rereading and analyzing the issue it was better to use a rolling window rather than an        interval.
+ - 5 Minute Interval For Each Hour - if first event occurred at 02 then we check violation windows [00,05],[05,10]...etc but this also leads to issue of only checking intervals    and not rolling windows
 
 # Paging Mission Control
 
-> You are tasked with assisting satellite ground operations for an earth science mission that monitors magnetic field variations at the Earth's poles. A pair of satellites fly in tandem orbit such that at least one will have line of sight with a pole to take accurate readings. The satellite�s science instruments are sensitive to changes in temperature and must be monitored closely. Onboard thermostats take several temperature readings every minute to ensure that the precision magnetometers do not overheat. Battery systems voltage levels are also monitored to ensure that power is available to cooling coils. Design a monitoring and alert application that processes status telemetry from the satellites and generates alert messages in cases of certain limit violation scenarios.  Fork this repository, build your program in the language of your choice, then submit a pull request with your code.
-=======
 > You are tasked with assisting satellite ground operations for an earth science mission that monitors magnetic field variations at the Earth's poles. A pair of satellites fly in tandem orbit such that at least one will have line of sight with a pole to take accurate readings. The satellite’s science instruments are sensitive to changes in temperature and must be monitored closely. Onboard thermostats take several temperature readings every minute to ensure that the precision magnetometers do not overheat. Battery systems voltage levels are also monitored to ensure that power is available to cooling coils. Design a monitoring and alert application that processes status telemetry from the satellites and generates alert messages in cases of certain limit violation scenarios.  Fork this repository, build your program in the language of your choice, then submit a pull request with your code.
+=======
+> You are tasked with assisting satellite ground operations for an earth science mission that monitors magnetic field variations at the Earth's poles. A pair of satellites fly in tandem orbit such that at least one will have line of sight with a pole to take accurate readings. The satelliteâ€™s science instruments are sensitive to changes in temperature and must be monitored closely. Onboard thermostats take several temperature readings every minute to ensure that the precision magnetometers do not overheat. Battery systems voltage levels are also monitored to ensure that power is available to cooling coils. Design a monitoring and alert application that processes status telemetry from the satellites and generates alert messages in cases of certain limit violation scenarios.  Fork this repository, build your program in the language of your choice, then submit a pull request with your code.
 
 
 ## Requirements
