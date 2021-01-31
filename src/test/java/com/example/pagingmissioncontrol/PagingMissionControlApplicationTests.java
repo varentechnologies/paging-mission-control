@@ -84,7 +84,6 @@ class PagingMissionControlApplicationTests {
 		dataProcessor.processData();
 		
 		JSONArray response = dataProcessor.processData();
-		System.out.println(response.toString(4));
 		assert (response.toString(4).equals("[\n" + 
 				"    {\n" + 
 				"        \"severity\": \"RED HIGH\",\n" + 
