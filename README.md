@@ -5,6 +5,8 @@ In addition you can go to the project folder, run **gradlew build** from cmd or 
 
 Input can be changed by updating the text file located in paging-mission-control/src/main/resources/data.txt.
 
+You can also manually enter the full filepath to a txt file such as "C:\Users\Umair\paging-mission-control\data.txt" and the program will read data from the custom user entered file rather than the default file.
+
 For further enhancements we can add ability for user to designate a file path for file loading.
 
 # Solution Context
