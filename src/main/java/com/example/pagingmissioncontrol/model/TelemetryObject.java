@@ -1,9 +1,9 @@
 package com.example.pagingmissioncontrol.model;
 
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public class TelemetryObject {
-    private Date timestamp;
+    private DateTime timestamp;
     private String satelliteId;
     private double redHighLimit;
     private double yellowHighLimit;
@@ -11,10 +11,10 @@ public class TelemetryObject {
     private double redLowLimit;
     private double rawValue;
     private String component;
-	public Date getTimestamp() {
+	public DateTime getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(DateTime timestamp) {
 		this.timestamp = timestamp;
 	}
 	public String getSatelliteId() {

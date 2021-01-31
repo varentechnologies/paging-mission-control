@@ -1,12 +1,15 @@
 package com.example.pagingmissioncontrol.model;
-import java.util.Date;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.json.JSONObject;
 
 public class AlertResponseObject{
 	
 	private Integer sateliteId;
 	private String severity;
 	private String component;
-	private Date timestamp;
+	private DateTime timestamp;
 	
 	public Integer getSateliteId() {
 		return sateliteId;
@@ -26,11 +29,11 @@ public class AlertResponseObject{
 	public void setComponent(String component) {
 		this.component = component;
 	}
-	public Date getTimestamp() {
+	public DateTime getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
+	public void setTimestamp(DateTime firstOccurrence) {
+		this.timestamp = firstOccurrence;
 	}
 	@Override
 	public String toString() {
@@ -38,4 +41,18 @@ public class AlertResponseObject{
 				+ ", timestamp=" + timestamp + "]";
 	}
 	
+	public JSONObject toJsonObject() {
+		JSONObject object = new JSONObject();
+		// convert date back to requested format, add all values to json object, add
+		// objects to response array
+		
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		String timestamp = formatter.print(this.getTimestamp());
+		
+		object.put("satelliteId", this.getSateliteId());
+		object.put("severity", this.getSeverity());
+		object.put("component", this.getComponent());
+		object.put("timestamp", timestamp);
+		return object;
+	}
 }
