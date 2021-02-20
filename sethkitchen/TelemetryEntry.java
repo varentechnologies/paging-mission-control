@@ -56,7 +56,7 @@ public class TelemetryEntry {
     }
 
     // Sets the JSON member variables
-    public void prepareForPrettyPrint() {
+    private void prepareForPrettyPrint() {
         satelliteId = Integer.parseInt(mSatellite.getId());
         if(mComponent.equals("TSTAT"))
         {
