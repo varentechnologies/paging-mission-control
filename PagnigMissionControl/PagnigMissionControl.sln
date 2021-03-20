@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagnigMissionControl", "Pag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Interfaces", "PagingMissionControl.Interfaces\PagingMissionControl.Interfaces.csproj", "{77B7637C-35D9-41B8-9507-7BE645AE97B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Constants", "PagingMissionControl.Constants\PagingMissionControl.Constants.csproj", "{7F9702A3-29D6-4B13-BB46-84354CB2F0A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{77B7637C-35D9-41B8-9507-7BE645AE97B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77B7637C-35D9-41B8-9507-7BE645AE97B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77B7637C-35D9-41B8-9507-7BE645AE97B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F9702A3-29D6-4B13-BB46-84354CB2F0A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F9702A3-29D6-4B13-BB46-84354CB2F0A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F9702A3-29D6-4B13-BB46-84354CB2F0A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F9702A3-29D6-4B13-BB46-84354CB2F0A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
