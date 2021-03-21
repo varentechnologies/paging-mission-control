@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
-namespace PagingMissionControl.Settings.Serialization
+namespace PagingMissionControl.Settings.Conversion
 {
     /// <summary>
     /// Provides settings for conversion (i.e., serialization) of objects to/from JSON.
