@@ -2,6 +2,9 @@
 
 namespace PagingMissionControls.Models
 {
+    /// <summary>
+    /// Defines the data values from a tokenized row of the input file.
+    /// </summary>
     public class InputRow : IInputRow
     {
         /// <summary>Gets or sets a string that labels which component -- currently TSTAT for Thermostat or BATT for Battery -- that this data refers to.</summary>
