@@ -3,9 +3,9 @@
 namespace PagingMissionControl.Settings.Serialization
 {
     /// <summary>
-    /// Provides settings for serialization of objects to/from JSON.
+    /// Provides settings for conversion (i.e., serialization) of objects to/from JSON.
     /// </summary>
-    internal static class OutputRowSerializationSettingsProvider
+    internal static class OutputRowConversionSettingsProvider
     {
         /// <summary>
         /// Gets the settings for serialization of objects to/from JSON.
