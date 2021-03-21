@@ -8,7 +8,7 @@ namespace PagingMissionControl.Settings.Conversion
     public static class OutputRowConversionSettingsProvider
     {
         /// <summary>
-        /// Gets the settings for serialization of objects to/from JSON.
+        /// Gets the <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/> for serialization of objects to/from JSON.
         /// </summary>
         public static readonly JsonSerializerSettings Settings =
             new JsonSerializerSettings
