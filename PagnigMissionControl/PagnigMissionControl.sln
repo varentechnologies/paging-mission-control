@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Extens
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControls.Models", "PagingMissionControls.Models\PagingMissionControls.Models.csproj", "{4AAB5F0D-C833-4345-942E-2CE9694767ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Serializers", "PagingMissionControl.Serializers\PagingMissionControl.Serializers.csproj", "{8D03CDD3-7EF2-4B29-9EE2-5357BABA96C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{4AAB5F0D-C833-4345-942E-2CE9694767ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AAB5F0D-C833-4345-942E-2CE9694767ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AAB5F0D-C833-4345-942E-2CE9694767ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D03CDD3-7EF2-4B29-9EE2-5357BABA96C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D03CDD3-7EF2-4B29-9EE2-5357BABA96C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D03CDD3-7EF2-4B29-9EE2-5357BABA96C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D03CDD3-7EF2-4B29-9EE2-5357BABA96C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
