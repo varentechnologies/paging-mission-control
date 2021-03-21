@@ -22,7 +22,7 @@ namespace PagnigMissionControl
 
             Display.OutputHeader();
 
-            Console.WriteLine(
+            Display.Text(
                 ConvertOutputDataSet.ToJson(
                     TransformInputDataSet.ToOutputRows(
                         ParseInput.FromPipeDelimitedInputLines(lines)
@@ -30,7 +30,8 @@ namespace PagnigMissionControl
                 )
             );
 
-            Console.ReadKey();  // to keep the console window from disappearing on Windows
+            Operations
+                .Pause(); // to keep the console window from disappearing on Windows
         }
     }
 }
