@@ -19,7 +19,7 @@
         decimal YellowLowLimit { get; set; }
 
         /// <summary>Gets a string of text that indicates the severity of the fault in a standardized manner.</summary>
-        /// <returns>String containing the values RED_HIGH, YELLOW_HIGH, YELLOW_LOW, or RED_LOW, or NORM for normal (i.e., value is between YELLOW_HIGH and YELLOW_LOW.</returns>
+        /// <returns>String containing the values 'RED HIGH', 'YELLOW HIGH', 'YELLOW LOW', or 'RED LOW', or 'NORM' for normal (i.e., value is between YELLOW_HIGH and YELLOW_LOW.</returns>
         string GetSeverity();
     }
 }
