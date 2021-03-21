@@ -2,6 +2,7 @@
 using PagingMissionControl.Parsers;
 using PagingMissionControl.Transforms;
 using System.IO;
+using System.Linq;
 
 namespace PagingMissionControl
 {
@@ -20,13 +21,18 @@ namespace PagingMissionControl
             Display.Text(
                 ConvertOutputDataSet.ToJson(
                     TransformInputDataSet.ToOutputRows(
-                        ParseInput.FromPipeDelimitedInputLines(lines)
-                    )
+                                             ParseInput
+                                                 .FromPipeDelimitedInputLines(
+                                                     lines
+                                                 )
+                                         )
+                                         .Where(
+                                             row => row.Severity.Contains("RED")
+                                         )
                 )
             );
 
-            Wait
-                .ForUserToPressAnyKey(); // to keep the console window from disappearing on Windows
+            Wait.ForUserToPressAnyKey(); // to keep the console window from disappearing on Windows
         }
     }
 }
