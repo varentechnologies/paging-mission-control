@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagnigMissionControl.Format
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagnigMissionControl.Factories", "PagnigMissionControl.Factories\PagnigMissionControl.Factories.csproj", "{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Params", "PagingMissionControl.Params\PagingMissionControl.Params.csproj", "{3D16C876-49FF-4124-A04E-0A2100B9DC36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D16C876-49FF-4124-A04E-0A2100B9DC36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D16C876-49FF-4124-A04E-0A2100B9DC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D16C876-49FF-4124-A04E-0A2100B9DC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D16C876-49FF-4124-A04E-0A2100B9DC36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
