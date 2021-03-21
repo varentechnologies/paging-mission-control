@@ -14,6 +14,6 @@ namespace PagingMissionControl.Formatters
                                     .Insert(7, "-")
                                     .Replace(" ", "T")
                        )
-                       .ToString("yyyy-MM-ddTHH:mm:ss.fff");
+                       .ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
     }
 }
