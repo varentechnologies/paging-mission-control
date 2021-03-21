@@ -1,2 +1,4 @@
 obj
 /PagnigMissionControl/PagingMissionControl.Constants/obj
+/.vs/*.sqlite
+/.vs
