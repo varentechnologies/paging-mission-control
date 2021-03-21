@@ -14,15 +14,14 @@ namespace PagnigMissionControl
         }
 
         /// <summary>Displays formatted text.</summary>
-        /// <param name="format">A composite format string.</param>
-        /// <param name="arg">An array of objects to write using <paramref name="format" />.</param>
+        /// <param name="value">The value to write.</param>
         /// <remarks>
         /// Using a method to do this instead of directly calling, e.g.,
         /// <see
         ///     cref="M:System.Console.WriteLine" />
         /// method allows us to vary how the text is outputted without breaking calling code.
         /// </remarks>
-        public static void Text(string format, params object[] arg)
-            => Console.WriteLine(format, arg);
+        public static void Text(string value)
+            => Console.WriteLine(value);
     }
 }

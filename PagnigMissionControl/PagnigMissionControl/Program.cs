@@ -1,19 +1,14 @@
 ﻿using PagingMissionControl.Converters;
 using PagingMissionControl.Parsers;
 using PagingMissionControl.Transforms;
-using System;
 using System.IO;
 
 namespace PagnigMissionControl
 {
-    /// <summary>
-    /// Provides the program's global functionality.
-    /// </summary>
+    /// <summary>Provides the program's global functionality.</summary>
     public static class Program
     {
-        /// <summary>
-        /// Application entry point.
-        /// </summary>
+        /// <summary>Application entry point.</summary>
         public static void Main()
         {
             var inputFilePath = AskUserFor.InputFilePath();
@@ -30,8 +25,8 @@ namespace PagnigMissionControl
                 )
             );
 
-            Operations
-                .Pause(); // to keep the console window from disappearing on Windows
+            Wait
+                .ForUserToPressAnyKey(); // to keep the console window from disappearing on Windows
         }
     }
 }
