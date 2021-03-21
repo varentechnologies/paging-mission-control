@@ -2,7 +2,7 @@
 
 namespace PagnigMissionControl
 {
-    /// <summary>Methods to direct the operation of the program.</summary>
+    /// <summary>Methods to delay the operation of the program.</summary>
     public static class Wait
     {
         /// <summary>Makes the program pause and wait for input from the user.</summary>
