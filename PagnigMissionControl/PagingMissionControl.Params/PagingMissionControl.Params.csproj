@@ -42,6 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeverityParams.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PagingMissionControl.Constants\PagingMissionControl.Constants.csproj">
+      <Project>{7F9702A3-29D6-4B13-BB46-84354CB2F0A5}</Project>
+      <Name>PagingMissionControl.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControl.Interfaces\PagingMissionControl.Interfaces.csproj">
+      <Project>{77B7637C-35D9-41B8-9507-7BE645AE97B0}</Project>
+      <Name>PagingMissionControl.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
