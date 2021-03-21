@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Extens
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControls.Models", "PagingMissionControls.Models\PagingMissionControls.Models.csproj", "{4AAB5F0D-C833-4345-942E-2CE9694767ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Serializers", "PagingMissionControl.Serializers\PagingMissionControl.Serializers.csproj", "{8D03CDD3-7EF2-4B29-9EE2-5357BABA96C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Converters", "PagingMissionControl.Converters\PagingMissionControl.Converters.csproj", "{8D03CDD3-7EF2-4B29-9EE2-5357BABA96C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Parsers", "PagingMissionControl.Parsers\PagingMissionControl.Parsers.csproj", "{644A5CA8-3070-41F6-8014-2D7EC6CB1442}"
 EndProject
