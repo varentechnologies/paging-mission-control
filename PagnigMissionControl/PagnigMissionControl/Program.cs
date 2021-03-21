@@ -1,11 +1,8 @@
 ﻿using PagingMissionControl.Converters;
-using PagingMissionControl.Extensions;
 using PagingMissionControl.Parsers;
 using PagingMissionControl.Transforms;
-using PagnigMissionControl.Factories;
 using System;
 using System.IO;
-using System.Linq;
 
 namespace PagnigMissionControl
 {
@@ -19,12 +16,11 @@ namespace PagnigMissionControl
         /// </summary>
         public static void Main()
         {
-            var inputFilePath = UserPrompts.GetInputFilePath();
+            var inputFilePath = AskUserFor.InputFilePath();
 
-            // ReSharper disable once AssignNullToNotNullAttribute
             var lines = File.ReadAllLines(inputFilePath);
-            
-            UserPrompts.DisplayOutputHeader();
+
+            Display.OutputHeader();
 
             Console.WriteLine(
                 ConvertOutputDataSet.ToJson(
