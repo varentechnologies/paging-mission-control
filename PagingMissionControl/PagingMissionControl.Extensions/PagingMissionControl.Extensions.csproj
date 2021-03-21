@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PagingMissionControl.Factories\PagingMissionControl.Factories.csproj">
-      <Project>{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}</Project>
+      <Project>{1f50beba-703f-4fa2-b96b-f3a16df5182c}</Project>
       <Name>PagingMissionControl.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\PagingMissionControl.Interfaces\PagingMissionControl.Interfaces.csproj">

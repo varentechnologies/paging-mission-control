@@ -39,10 +39,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PagingMissionControl.Extensions\PagingMissionControl.Extensions.csproj">
-      <Project>{51213F52-7E46-403C-83D7-1C6350CE5685}</Project>
-      <Name>PagingMissionControl.Extensions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PagingMissionControl.Factories\PagingMissionControl.Factories.csproj">
       <Project>{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}</Project>
       <Name>PagingMissionControl.Factories</Name>
