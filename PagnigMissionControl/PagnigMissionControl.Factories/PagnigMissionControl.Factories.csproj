@@ -50,6 +50,14 @@
       <Project>{77B7637C-35D9-41B8-9507-7BE645AE97B0}</Project>
       <Name>PagingMissionControl.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControl.Params\PagingMissionControl.Params.csproj">
+      <Project>{3D16C876-49FF-4124-A04E-0A2100B9DC36}</Project>
+      <Name>PagingMissionControl.Params</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControls.Models\PagingMissionControls.Models.csproj">
+      <Project>{4AAB5F0D-C833-4345-942E-2CE9694767ED}</Project>
+      <Name>PagingMissionControls.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PagnigMissionControl.Formatters\PagnigMissionControl.Formatters.csproj">
       <Project>{157013B8-2904-4B56-9D69-388DB2ED06FC}</Project>
       <Name>PagnigMissionControl.Formatters</Name>

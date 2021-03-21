@@ -1,4 +1,5 @@
 ﻿using PagingMissionControl.Interfaces;
+using PagingMissionControl.Params;
 
 namespace PagnigMissionControl.Factories
 {
