@@ -1,6 +1,6 @@
-﻿using PagingMissionControl.Interfaces;
+﻿using PagingMissionControl.Formatters;
+using PagingMissionControl.Interfaces;
 using PagingMissionControls.Models;
-using PagingMissionControl.Formatters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace PagingMissionControl.Factories
     public static class MakeNewInputRow
     {
         /// <summary>
-        /// Given a <paramref name="partEnumerable" /> containing the tokenized components of the pipe-delimited line from the input file, initializes a new instance of an object that implements the
+        /// Given a <paramref name="partEnumerable" /> containing the tokenized components of a particular pipe-delimited line from the input file, initializes a new instance of an object that implements the
         /// <see
         ///     cref="T:PagingMissionControl.Interfaces.IInputRow" />
         /// interface with it and returns a reference to the object.
