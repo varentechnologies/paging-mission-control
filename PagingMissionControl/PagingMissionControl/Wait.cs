@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace PagnigMissionControl
+namespace PagingMissionControl
 {
     /// <summary>Methods to delay the operation of the program.</summary>
     public static class Wait

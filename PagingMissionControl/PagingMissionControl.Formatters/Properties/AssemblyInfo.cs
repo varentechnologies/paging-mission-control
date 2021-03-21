@@ -1,15 +1,15 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PagnigMissionControl.Factories")]
+[assembly: AssemblyTitle("PagingMissionControl.Formatters")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PagnigMissionControl.Factories")]
+[assembly: AssemblyProduct("PagingMissionControl.Formatters")]
 [assembly: AssemblyCopyright("Copyright © 2021 by Brian C. Hart, Ph.D.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1f50beba-703f-4fa2-b96b-f3a16df5182c")]
+[assembly: Guid("157013b8-2904-4b56-9d69-388db2ed06fc")]
 
 // Version information for an assembly consists of the following four values:
 //

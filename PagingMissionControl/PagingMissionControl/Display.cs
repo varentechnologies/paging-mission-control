@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace PagnigMissionControl
+namespace PagingMissionControl
 {
     /// <summary>Methods to display information on the screen.</summary>
     public class Display

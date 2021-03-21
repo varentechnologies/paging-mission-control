@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace PagnigMissionControl.Formatters
+namespace PagingMissionControl.Formatters
 {
     /// <summary>Formats timestamp strings according to spec.</summary>
     public static class FormatTimeString

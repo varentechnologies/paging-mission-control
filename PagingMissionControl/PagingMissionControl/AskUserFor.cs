@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace PagnigMissionControl
+namespace PagingMissionControl
 {
     /// <summary>Methods to prompt the user for input values.</summary>
     public static class AskUserFor
