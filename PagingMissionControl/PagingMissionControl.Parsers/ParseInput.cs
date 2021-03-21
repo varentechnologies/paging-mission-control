@@ -22,8 +22,8 @@ namespace PagingMissionControl.Parsers
         public static IEnumerable<IInputRow> FromPipeDelimitedInputLines(
             IEnumerable<string> lines)
             => lines.Select(
-                l => MakeNewInputRow.FromParts(
-                    l.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries)
+                line => MakeNewInputRow.FromParts(
+                    line.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries)
                 )
             );
     }
