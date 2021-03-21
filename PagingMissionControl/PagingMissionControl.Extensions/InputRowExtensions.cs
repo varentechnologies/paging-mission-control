@@ -1,6 +1,6 @@
 ﻿using PagingMissionControl.Interfaces;
 using PagingMissionControls.Models;
-using PagnigMissionControl.Factories;
+using PagingMissionControl.Factories;
 
 namespace PagingMissionControl.Extensions
 {

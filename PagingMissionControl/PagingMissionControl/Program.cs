@@ -3,7 +3,7 @@ using PagingMissionControl.Parsers;
 using PagingMissionControl.Transforms;
 using System.IO;
 
-namespace PagnigMissionControl
+namespace PagingMissionControl
 {
     /// <summary>Provides the program's global functionality.</summary>
     public static class Program

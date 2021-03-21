@@ -1,5 +1,5 @@
 ﻿using PagingMissionControl.Interfaces;
-using PagnigMissionControl.Factories;
+using PagingMissionControl.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

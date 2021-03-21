@@ -39,6 +39,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PagingMissionControl.Factories\PagingMissionControl.Factories.csproj">
+      <Project>{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}</Project>
+      <Name>PagingMissionControl.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PagingMissionControl.Interfaces\PagingMissionControl.Interfaces.csproj">
       <Project>{77B7637C-35D9-41B8-9507-7BE645AE97B0}</Project>
       <Name>PagingMissionControl.Interfaces</Name>
@@ -46,10 +50,6 @@
     <ProjectReference Include="..\PagingMissionControls.Models\PagingMissionControls.Models.csproj">
       <Project>{4AAB5F0D-C833-4345-942E-2CE9694767ED}</Project>
       <Name>PagingMissionControls.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PagnigMissionControl.Factories\PagnigMissionControl.Factories.csproj">
-      <Project>{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}</Project>
-      <Name>PagnigMissionControl.Factories</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

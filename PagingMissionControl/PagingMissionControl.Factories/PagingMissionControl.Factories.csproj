@@ -7,8 +7,8 @@
     <ProjectGuid>{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PagnigMissionControl.Factories</RootNamespace>
-    <AssemblyName>PagnigMissionControl.Factories</AssemblyName>
+    <RootNamespace>PagingMissionControl.Factories</RootNamespace>
+    <AssemblyName>PagingMissionControl.Factories</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -40,6 +40,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PagingMissionControl.Formatters\PagingMissionControl.Formatters.csproj">
+      <Project>{157013B8-2904-4B56-9D69-388DB2ED06FC}</Project>
+      <Name>PagingMissionControl.Formatters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PagingMissionControl.Interfaces\PagingMissionControl.Interfaces.csproj">
       <Project>{77B7637C-35D9-41B8-9507-7BE645AE97B0}</Project>
       <Name>PagingMissionControl.Interfaces</Name>
@@ -51,10 +55,6 @@
     <ProjectReference Include="..\PagingMissionControls.Models\PagingMissionControls.Models.csproj">
       <Project>{4AAB5F0D-C833-4345-942E-2CE9694767ED}</Project>
       <Name>PagingMissionControls.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PagnigMissionControl.Formatters\PagnigMissionControl.Formatters.csproj">
-      <Project>{157013B8-2904-4B56-9D69-388DB2ED06FC}</Project>
-      <Name>PagnigMissionControl.Formatters</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

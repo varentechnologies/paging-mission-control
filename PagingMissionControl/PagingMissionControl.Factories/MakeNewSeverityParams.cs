@@ -1,7 +1,7 @@
 ﻿using PagingMissionControl.Interfaces;
 using PagingMissionControl.Params;
 
-namespace PagnigMissionControl.Factories
+namespace PagingMissionControl.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the

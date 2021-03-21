@@ -67,10 +67,6 @@
       <Project>{3A9886A7-C6F7-40D7-969C-552412144093}</Project>
       <Name>PagingMissionControl.Transforms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PagnigMissionControl.Factories\PagnigMissionControl.Factories.csproj">
-      <Project>{1F50BEBA-703F-4FA2-B96B-F3A16DF5182C}</Project>
-      <Name>PagnigMissionControl.Factories</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

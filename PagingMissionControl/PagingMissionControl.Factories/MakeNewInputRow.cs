@@ -1,11 +1,11 @@
 ﻿using PagingMissionControl.Interfaces;
 using PagingMissionControls.Models;
-using PagnigMissionControl.Formatters;
+using PagingMissionControl.Formatters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PagnigMissionControl.Factories
+namespace PagingMissionControl.Factories
 {
     /// <summary>Creates a new input-data-row POCO from the tokenized version of the input line provided.</summary>
     public static class MakeNewInputRow
