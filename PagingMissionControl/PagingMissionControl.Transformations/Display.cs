@@ -1,6 +1,6 @@
 using System;
 
-namespace PagingMissionControl
+namespace PagingMissionControl.Transformations
 {
     /// <summary>Methods to display information on the screen.</summary>
     public class Display

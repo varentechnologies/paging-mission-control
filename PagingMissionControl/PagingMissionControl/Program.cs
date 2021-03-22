@@ -1,8 +1,6 @@
-﻿using PagingMissionControl.Converters;
-using PagingMissionControl.Parsers;
-using PagingMissionControl.Transforms;
-using System.IO;
-using System.Linq;
+﻿using PagingMissionControl.Constants;
+using PagingMissionControl.Transformations;
+using System;
 
 namespace PagingMissionControl
 {
@@ -12,25 +10,22 @@ namespace PagingMissionControl
         /// <summary>Application entry point.</summary>
         public static void Main()
         {
-            var inputFilePath = AskUserFor.InputFilePath();
-
-            var lines = File.ReadAllLines(inputFilePath);
-
-            Display.OutputHeader();
-
-            Display.Text(
-                ConvertOutputDataSet.ToJson(
-                    TransformInputDataSet.ToOutputRows(
-                                             ParseInput
-                                                 .FromPipeDelimitedInputLines(
-                                                     lines
-                                                 )
-                                         )
-                                         .Where(
-                                             row => row.Severity.Contains("RED")
-                                         )
-                )
+            EventQueue.EventQueue.Instance.MapEvent(
+                Events.EVENT_TRANSFORMATION_DONE, new Action<string>(OnDone)
             );
+
+            TransformationEngine.Instance.DoConversion(
+                AskUserFor.InputFilePath()
+            );
+        }
+
+        /// <summary>Called when the transformation engine is done processing the data.</summary>
+        /// <param name="result">(Required.) String parameter that receives the result of the data transformation operation.</param>
+        private static void OnDone(string result)
+        {
+            if (string.IsNullOrWhiteSpace(result)) return;
+
+            Display.Text(result);
 
             Wait.ForUserToPressAnyKey(); // to keep the console window from disappearing on Windows
         }

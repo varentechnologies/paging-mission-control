@@ -1,6 +1,6 @@
 using System;
 
-namespace PagingMissionControl
+namespace PagingMissionControl.Transformations
 {
     /// <summary>Methods to prompt the user for input values.</summary>
     public static class AskUserFor

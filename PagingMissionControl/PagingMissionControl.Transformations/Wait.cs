@@ -1,6 +1,6 @@
 using System;
 
-namespace PagingMissionControl
+namespace PagingMissionControl.Transformations
 {
     /// <summary>Methods to delay the operation of the program.</summary>
     public static class Wait
