@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{249504E9-C25C-4BFA-B0EC-E30AC71875B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PagingMissionControl.Transformations</RootNamespace>
+    <AssemblyName>PagingMissionControl.Transformations</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AskUserFor.cs" />
+    <Compile Include="Display.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransformationEngine.cs" />
+    <Compile Include="Wait.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PagingMissionControl.Constants\PagingMissionControl.Constants.csproj">
+      <Project>{7F9702A3-29D6-4B13-BB46-84354CB2F0A5}</Project>
+      <Name>PagingMissionControl.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControl.Converters\PagingMissionControl.Converters.csproj">
+      <Project>{8D03CDD3-7EF2-4B29-9EE2-5357BABA96C9}</Project>
+      <Name>PagingMissionControl.Converters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControl.EventQueue.Interfaces\PagingMissionControl.EventQueue.Interfaces.csproj">
+      <Project>{96B2F2B6-4A5B-4FCC-AF02-6AE19107E7A7}</Project>
+      <Name>PagingMissionControl.EventQueue.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControl.EventQueue\PagingMissionControl.EventQueue.csproj">
+      <Project>{F30295A0-BA69-4D81-A6EA-61DA53EB1C9A}</Project>
+      <Name>PagingMissionControl.EventQueue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControl.Interfaces\PagingMissionControl.Interfaces.csproj">
+      <Project>{77B7637C-35D9-41B8-9507-7BE645AE97B0}</Project>
+      <Name>PagingMissionControl.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControl.Parsers\PagingMissionControl.Parsers.csproj">
+      <Project>{644A5CA8-3070-41F6-8014-2D7EC6CB1442}</Project>
+      <Name>PagingMissionControl.Parsers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagingMissionControl.Transforms\PagingMissionControl.Transforms.csproj">
+      <Project>{3A9886A7-C6F7-40D7-969C-552412144093}</Project>
+      <Name>PagingMissionControl.Transforms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
