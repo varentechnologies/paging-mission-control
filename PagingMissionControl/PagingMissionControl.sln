@@ -31,6 +31,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Factor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.Formatters", "PagingMissionControl.Formatters\PagingMissionControl.Formatters.csproj", "{157013B8-2904-4B56-9D69-388DB2ED06FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.EventQueue.Interfaces", "PagingMissionControl.EventQueue.Interfaces\PagingMissionControl.EventQueue.Interfaces.csproj", "{96B2F2B6-4A5B-4FCC-AF02-6AE19107E7A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.EventQueue", "PagingMissionControl.EventQueue\PagingMissionControl.EventQueue.csproj", "{F30295A0-BA69-4D81-A6EA-61DA53EB1C9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.EventQueue.Factories", "PagingMissionControl.EventQueue.Factories\PagingMissionControl.EventQueue.Factories.csproj", "{85ACD490-ADE4-4387-A19B-6F925A06E7EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingMissionControl.EventQueue.Items", "PagingMissionControl.EventQueue.Items\PagingMissionControl.EventQueue.Items.csproj", "{EF5E8586-2D1A-4458-9A80-22EBC4007347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +93,22 @@ Global
 		{157013B8-2904-4B56-9D69-388DB2ED06FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{157013B8-2904-4B56-9D69-388DB2ED06FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{157013B8-2904-4B56-9D69-388DB2ED06FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B2F2B6-4A5B-4FCC-AF02-6AE19107E7A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B2F2B6-4A5B-4FCC-AF02-6AE19107E7A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B2F2B6-4A5B-4FCC-AF02-6AE19107E7A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B2F2B6-4A5B-4FCC-AF02-6AE19107E7A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F30295A0-BA69-4D81-A6EA-61DA53EB1C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F30295A0-BA69-4D81-A6EA-61DA53EB1C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F30295A0-BA69-4D81-A6EA-61DA53EB1C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F30295A0-BA69-4D81-A6EA-61DA53EB1C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85ACD490-ADE4-4387-A19B-6F925A06E7EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85ACD490-ADE4-4387-A19B-6F925A06E7EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85ACD490-ADE4-4387-A19B-6F925A06E7EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85ACD490-ADE4-4387-A19B-6F925A06E7EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF5E8586-2D1A-4458-9A80-22EBC4007347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF5E8586-2D1A-4458-9A80-22EBC4007347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF5E8586-2D1A-4458-9A80-22EBC4007347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF5E8586-2D1A-4458-9A80-22EBC4007347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
